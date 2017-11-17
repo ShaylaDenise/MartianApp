@@ -1,0 +1,21 @@
+p {
+  padding-bottom: 1em;
+  text-align: center;
+  font-family: 'play', sans-serif;
+}
+
+h2{
+  text-align: center;
+  color: black;
+  font-family: 'play', sans-serif;
+}
+
+form {
+  padding-bottom: 1em;
+}
+
+img {
+  padding-top: 1em;
+  padding-bottom: none;
+  width: 100%;
+}

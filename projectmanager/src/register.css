@@ -1,0 +1,65 @@
+.Register-Page {
+  align-items: center;
+  background-image: url('./Components/Images/mars_meet.jpg');
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.register {
+  color: black;
+  font-family: 'Play', sans-serif;
+  font-size: 50px;
+  padding-top: 2rem;
+  text-shadow: 2px 2px #F86A46;
+  text-transform: uppercase;
+}
+form {
+  text-align: center;
+  width: 100%;
+}
+label {
+  font-family: 'Play', sans-serif;
+  font-size: 20px;
+}
+input {
+  background: transparent;
+  border-color: #F86A46;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: black;
+  font-family: 'Play', sans-serif;
+  font-size: 20px;
+  height: 2rem;
+  width: 90%;
+}
+select {
+  background: transparent;
+  border-bottom: solid, 2px;
+  border-color: #F86A46;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 90%;
+  height: 2rem;
+}
+button {
+  font-family: 'Play', sans-serif;
+  font-size: 35px;
+  background: transparent;
+  border: none;
+}
+::-webkit-input-placeholder {
+  color: black;
+}
+::-moz-placeholder {
+  color: black;
+}
+:-ms-input-placeholder {
+  color: black;
+}
+:-o-input-placeholder {
+  color: black;
+}
