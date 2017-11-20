@@ -14,8 +14,8 @@ class Home extends Component {
           <div className="pulse">
             <Link to='./register'><button id="home-btn"></button></Link>
           </div>
+          <h2 id="foot">Click to Enter</h2>
         </div>
-        <h2 id="foot">Click to Enter</h2>
       </div>
     );
   }

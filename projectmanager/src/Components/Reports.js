@@ -8,59 +8,62 @@ class Reports extends Component {
   constructor() {
     super();
     this.state = {
+      response: [],
+      aliens: [],
+      colonist_id: "",
       action: "",
       actionInput: true,
-      aliens: [],
+
       alienType: 0,
       alienSelected: true
     };
     this._handleChangeAction = this._handleChangeAction.bind(this);
-    this._SendReport = this._SendReport.bind(this);
+    this._sendReport = this._sendReport.bind(this);
     this._handleChangeAlien = this._handleChangeAlien.bind(this);
   }
 
   _handleChangeAction(event) {
     this.setState({
       action: event.target.value,
-      actionInput : true,
     });
   }
 
   _handleChangeAlien(event) {
     this.setState({
       alienType: event.target.value,
-      alienSelected : true,
     });
   }
 
-  _SendReport(event) {
-      var dateSubmitted = new Date();
-      var dd = dateSubmitted.getDate();
-      var mm = dateSubmitted.getMonth();
-      var yyyy = dateSubmitted.getFullYear();
-      dateSubmitted = yyyy + mm + dd;
-      axios.post({
-        url: "https://red-wdp-api.herokuapp.com/api/mars/encounters",
-        response: {
-          encounter: {
-            alienType: this.state.aliens[this.state.alienType].type,
-            dateSubmitted: dateSubmitted,
-            action: this.state.action,
-            colonist_id: JSON.parse(sessionStorage.getItem("colonist_id")).id
-          }
-        }
-      })
-    }
-
-    componentDidMount() {
-      axios.get("https://red-wdp-api.herokuapp.com/api/mars/aliens")
-        .then(response => {
-          console.log(response.data);
-          this.setState({
-            aliens: response.data.aliens
-          });
+  _sendReport(data) {
+    axios.post('https://red-wdp-api.herokuapp.com/api/mars/encounters', {
+      "encounter" : {
+        "atype" : this.state.alienType,
+        "date" : this.state.date,
+        "action" : this.state.action,
+        "colonist_id" : this.state.colonist_id
+      }
+    })
+    .then((response) => {
+      if (response) {
+        this.setState({
+          response: response
         });
-    }
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  componentDidMount() {
+    axios.get("https://red-wdp-api.herokuapp.com/api/mars/aliens")
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          aliens: response.data.aliens
+        });
+      });
+  }
 
   render() {
     return (
